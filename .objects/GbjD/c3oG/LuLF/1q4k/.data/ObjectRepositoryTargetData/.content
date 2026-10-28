@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="dTurqq7KcUad7PqVO8qlzg" Reference="tbpjGTvoIkq6VAMQdbpjdQ/1q4kd8yMFUOUGkSGdlZF6Q" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="dewa.gov.ae/en/consumer/my-account/login" DesignTimeRectangle="636, 785, 650, 56" ElementType="InputBoxPassword" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='INPUT' type='password' aaname='*Password*' /&gt;" Guid="a4c08318-cb25-43b1-9345-038a0b3e8fbb" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Complete">
+      <imageRef attrName="InformativeScreenshot" originalValue="76d5ba6af6cf77dda93de42d338f323c.jpg" xmlns="">0cchftsWtH0a8TSUUKxZ4qQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

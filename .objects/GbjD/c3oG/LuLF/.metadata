@@ -1,0 +1,16 @@
+﻿{
+  "Name": "Chrome -Dewa",
+  "Type": "Screen",
+  "Id": "LuLFo0gL00ShJky-hC9xpg",
+  "Reference": "tbpjGTvoIkq6VAMQdbpjdQ/LuLFo0gL00ShJky-hC9xpg",
+  "ParentRef": "tbpjGTvoIkq6VAMQdbpjdQ/c3oGuUgodEKWSWseYVdnBg",
+  "Created": "2026-10-27T09:43:10.016094Z",
+  "Updated": "2026-10-27T09:43:27.854105Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.6.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.9.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "UpdatedBy": [
+    "UiPath.Platform, Version=26.9.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
