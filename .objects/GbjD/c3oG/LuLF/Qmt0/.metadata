@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Billing",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "Qmt0ZDC3EECN1eLO37F5Xg",
+  "Reference": "tbpjGTvoIkq6VAMQdbpjdQ/Qmt0ZDC3EECN1eLO37F5Xg",
+  "ParentRef": "tbpjGTvoIkq6VAMQdbpjdQ/LuLFo0gL00ShJky-hC9xpg",
+  "Created": "2026-10-30T11:01:43.2046062Z",
+  "Updated": "2026-10-30T11:01:43.2046062Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.6.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.9.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="VqefdeA15UKS8UWmNbBLfA" Reference="tbpjGTvoIkq6VAMQdbpjdQ/FTMvIn47T0qNwxinaLkRXQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="dewa.gov.ae/en/consumer/billing/manage-collective-billing/collective-statements" DesignTimeRectangle="685, 697, 478, 56" ElementType="DropDown" ElementVisibilityArgument="Interactive" FuzzyAccuracy="0.9" FuzzySelectorArgument="&lt;webctrl tag='SELECT' aaname='*Download Options*' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="e4189b6c-26dd-4089-94f2-6e537bb0ef20" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="[UiPath.UIAutomationNext.Enums.NWaitForReady.Complete]">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target DesignTimeRectangle="684, 664, 553, 24" ElementType="Text" FuzzyAccuracy="0.9" FuzzySelectorArgument="&lt;webctrl aaname='*Download Options*' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' tag='LABEL' check:innerText='Download Options' /&gt;" Guid="e6af139b-8f3f-4b1b-aa7e-a099d3e27dec" SearchSteps="FuzzySelector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="14550ed5e232ab7a3f927780e18539db.jpg" xmlns="">0JVGQhbVxWkOUl9I8eN_lzg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">SelectItem</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

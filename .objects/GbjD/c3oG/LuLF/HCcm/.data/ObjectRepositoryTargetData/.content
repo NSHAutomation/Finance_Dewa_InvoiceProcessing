@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="lMn1kREiFUqrNSLtxEWRew" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="dewa.gov.ae/consumer/billing/manage-collective-billing/collective-statements" DesignTimeRectangle="133, 926, 1774, 23" ElementType="DropDown" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd aaname='File name:' /&gt;" Guid="1a6ebe90-82f4-4545-bcfc-fac35a5bde23" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='*' title='Save As' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Complete">
+      <imageRef attrName="InformativeScreenshot" originalValue="ef2223866b024ad32f5d0f1f16d5c7dc.jpg" xmlns="">0zJw8qdSn0UGKWRsET0mZgQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

@@ -1,0 +1,17 @@
+﻿{
+  "Name": "MENU",
+  "Type": "Element",
+  "TaxonomyType": "Element",
+  "Id": "0Bv7Pm2z50OxkZLdXESoPA",
+  "Reference": "tbpjGTvoIkq6VAMQdbpjdQ/0Bv7Pm2z50OxkZLdXESoPA",
+  "ParentRef": "tbpjGTvoIkq6VAMQdbpjdQ/LuLFo0gL00ShJky-hC9xpg",
+  "Created": "2026-10-30T11:00:26.3035412Z",
+  "Updated": "2026-10-30T11:00:36.9459733Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.6.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.9.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
+  "UpdatedBy": [
+    "UiPath.Platform, Version=26.9.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

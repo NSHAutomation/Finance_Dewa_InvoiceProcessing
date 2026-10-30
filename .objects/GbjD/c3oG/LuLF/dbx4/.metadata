@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Manage Collective Billi…",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "dbx4QRYcykqEgxDh6KgIrw",
+  "Reference": "tbpjGTvoIkq6VAMQdbpjdQ/dbx4QRYcykqEgxDh6KgIrw",
+  "ParentRef": "tbpjGTvoIkq6VAMQdbpjdQ/LuLFo0gL00ShJky-hC9xpg",
+  "Created": "2026-10-30T11:02:29.8528801Z",
+  "Updated": "2026-10-30T11:02:29.8528801Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.6.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.9.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

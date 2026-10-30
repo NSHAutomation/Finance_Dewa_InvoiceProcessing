@@ -1,0 +1,417 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="dewa_NavigateToBillDownload" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:aa="clr-namespace:Autossential.Activities;assembly=Autossential.Activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>dewa_NavigateToBillDownload_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>Autossential.Activities</x:String>
+      <x:String>Autossential.Activities.Base</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>Autossential.Activities</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="dewa_NavigateToBillDownload" sap:VirtualizedContainerService.HintSize="1513,3397" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence sap:VirtualizedContainerService.HintSize="650,3374" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="616,3291" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+        <TryCatch.Try>
+          <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="594,3044" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Chrome -Dewa" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="560,2984" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="a60f113c-2639-47b7-9e32-45f0d8e46906" Version="V2">
+              <uix:NApplicationCard.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="558,2789" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="scg:List(x:String)" Name="listAccountNumbers" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'MENU'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="524,194" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a60f113c-2639-47b7-9e32-45f0d8e46906" Version="V5">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="dewa.gov.ae/en/consumer/my-account/dashboard" ContentHash="h2hX7rB-qkqepSqsOlgI3g" DesignTimeRectangle="293, 248, 26, 18" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='MENU' tag='BUTTON' class='m12-menu_expandable' /&gt;&lt;webctrl tag='SPAN' class='m12-menu_bar--wrapper' /&gt;" Guid="88e9d391-28cf-42ff-8908-d9e160aebe78" InformativeScreenshot="b5c43bf8662a15b9fc50a1c3d6c65380.jpg" IsResponsive="True" Reference="tbpjGTvoIkq6VAMQdbpjdQ/0Bv7Pm2z50OxkZLdXESoPA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Complete" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Billing'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="524,194" sap2010:WorkflowViewState.IdRef="NClick_2" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a60f113c-2639-47b7-9e32-45f0d8e46906" Version="V5">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="dewa.gov.ae/en/consumer/my-account/dashboard" ContentHash="aaKq0IAfN0aaJkIVDoo8iw" DesignTimeRectangle="761, 359, 413, 48" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='*Billing*' tag='BUTTON' /&gt;" Guid="e614b329-019f-47dd-a8e4-816887b43bfb" InformativeScreenshot="d30ec853e5c349f32aaa75762fc25c7e.jpg" Reference="tbpjGTvoIkq6VAMQdbpjdQ/Qmt0ZDC3EECN1eLO37F5Xg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Manage Collective Billi…'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="524,194" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a60f113c-2639-47b7-9e32-45f0d8e46906" Version="V5">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="dewa.gov.ae/en/consumer/my-account/dashboard" ContentHash="7S7VYpoDzUqixUb6tam59g" DesignTimeRectangle="1207, 515, 405, 48" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='A' aaname='Manage Collective Billing' /&gt;" Guid="cff818e0-e47b-4e18-a625-9c98189b96db" InformativeScreenshot="9ef84be6a0add157d6b0ef8dbb8fb0d8.jpg" Reference="tbpjGTvoIkq6VAMQdbpjdQ/dbx4QRYcykqEgxDh6KgIrw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Collective Statement'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="524,194" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a60f113c-2639-47b7-9e32-45f0d8e46906" Version="V5">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="dewa.gov.ae/en/consumer/billing/manage-collective-billing" ContentHash="r_jETqHhH0-t96F_KHeIdA" DesignTimeRectangle="293, 543, 424, 48" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='Collective Statement' tag='A' /&gt;" Guid="587abde0-bbae-4a76-9443-f34407bbbb58" InformativeScreenshot="cf67cefd2d6a8ae4036bb3ed323f8ede.jpg" Reference="tbpjGTvoIkq6VAMQdbpjdQ/6lHrtxmKBkySbpaPdyawiA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NGetAttributeGeneric x:TypeArguments="scg:List(x:String)" Attribute="items" DisplayName="Get Attribute 'Collective Contract Acc…'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="524,196" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_1" Result="[listAccountNumbers]" ScopeIdentifier="a60f113c-2639-47b7-9e32-45f0d8e46906" Version="V5">
+                      <uix:NGetAttributeGeneric.Target>
+                        <uix:TargetAnchorable BrowserURL="dewa.gov.ae/en/consumer/billing/manage-collective-billing/collective-statements" ContentHash="F-RgGhhXOEmyI6cNPFGxqg" DesignTimeRectangle="685, 576, 551, 56" ElementType="DropDown" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='SELECT' id='form-field-accounts' /&gt;" FuzzyAccuracy="0.9" FuzzySelectorArgument="&lt;webctrl tag='SELECT' aaname='Collective*Contract*Account*' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="7777a53f-76e1-48c3-ac43-277b0bfe19a2" InformativeScreenshot="84b52f753509f51949fb1bf54db7709b.jpg" IsResponsive="True" Reference="tbpjGTvoIkq6VAMQdbpjdQ/AXXUq9JLhk-B3zOAk4g_Sw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="684, 543, 553, 24" ElementType="Text" FuzzyAccuracy="0.9" FuzzySelectorArgument="&lt;webctrl tag='LABEL' aaname='*Collective Contract Account*' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='Collective Contract Account' /&gt;" Guid="f48c9958-5b2d-43bc-bd59-cefa3e1710c3" SearchSteps="FuzzySelector" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NGetAttributeGeneric.Target>
+                    </uix:NGetAttributeGeneric>
+                    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each currentText-Account List" sap:VirtualizedContainerService.HintSize="524,1757" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[listAccountNumbers]">
+                      <ui:ForEach.Body>
+                        <ActivityAction x:TypeArguments="x:String">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="x:String" Name="currentText" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="522,1635" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="x:Boolean" Name="is_AccountFolderExist" />
+                            </Sequence.Variables>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If Condition="[(currentText.ToString.Trim.ToLower.Contains(&quot;please select an account number&quot;) OrElse currentText.ToString.Trim.ToLower.Contains(&quot;000000523300&quot;))]" DisplayName="If-Validate Account number" sap:VirtualizedContainerService.HintSize="488,1575" sap2010:WorkflowViewState.IdRef="If_1">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <If.Then>
+                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="486,226" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,166" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[currentText+&quot; Skipping as not required&quot;]" />
+                                </Sequence>
+                              </If.Then>
+                              <If.Else>
+                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="486,1187" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:FolderExistsX DisplayName="Folder Exists-Account Folder" Exists="[is_AccountFolderExist]" sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="FolderExistsX_1" Path="[in_Config(&quot;DewaInvoiceDownloadPath&quot;).ToString+Date.Now.ToString(&quot;yyyy&quot;)+&quot;\&quot;+Date.Now.ToString(&quot;MMM&quot;)+&quot;\&quot;+currentText.Trim]" />
+                                  <If Condition="[is_AccountFolderExist]" DisplayName="Automates DEWA invoice download, extraction, and cleanup." sap:VirtualizedContainerService.HintSize="452,952" sap2010:WorkflowViewState.IdRef="If_2">
+                                    <If.Then>
+                                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,226" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Account Folder ALready Downloaded&quot;]" />
+                                      </Sequence>
+                                    </If.Then>
+                                    <If.Else>
+                                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,564" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <uix:NSelectItem DisplayName="Select Item 'Collective Contract Acc…'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="NSelectItem_1" Item="[currentText.Trim]" ScopeIdentifier="a60f113c-2639-47b7-9e32-45f0d8e46906" Version="V5">
+                                          <uix:NSelectItem.Items>
+                                            <scg:List x:TypeArguments="x:String" Capacity="4">
+                                              <x:String>Please select an Account Number</x:String>
+                                              <x:String>000000519800</x:String>
+                                              <x:String>000000523300</x:String>
+                                              <x:String>000000526600</x:String>
+                                            </scg:List>
+                                          </uix:NSelectItem.Items>
+                                          <uix:NSelectItem.Target>
+                                            <uix:TargetAnchorable BrowserURL="dewa.gov.ae/en/consumer/billing/manage-collective-billing/collective-statements" ContentHash="F-RgGhhXOEmyI6cNPFGxqg" DesignTimeRectangle="685, 576, 551, 56" ElementType="DropDown" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='SELECT' id='form-field-accounts' /&gt;" FuzzyAccuracy="0.9" FuzzySelectorArgument="&lt;webctrl tag='SELECT' aaname='Collective*Contract*Account*' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="7777a53f-76e1-48c3-ac43-277b0bfe19a2" InformativeScreenshot="84b52f753509f51949fb1bf54db7709b.jpg" IsResponsive="True" Reference="tbpjGTvoIkq6VAMQdbpjdQ/AXXUq9JLhk-B3zOAk4g_Sw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive">
+                                              <uix:TargetAnchorable.Anchors>
+                                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                  <uix:Target DesignTimeRectangle="684, 543, 553, 24" ElementType="Text" FuzzyAccuracy="0.9" FuzzySelectorArgument="&lt;webctrl tag='LABEL' aaname='*Collective Contract Account*' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='Collective Contract Account' /&gt;" Guid="f48c9958-5b2d-43bc-bd59-cefa3e1710c3" SearchSteps="FuzzySelector" />
+                                                </scg:List>
+                                              </uix:TargetAnchorable.Anchors>
+                                            </uix:TargetAnchorable>
+                                          </uix:NSelectItem.Target>
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </uix:NSelectItem>
+                                        <uix:NSelectItem DisplayName="Select Item 'Download Options'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="NSelectItem_2" Item="Individual" ScopeIdentifier="a60f113c-2639-47b7-9e32-45f0d8e46906" Version="V5">
+                                          <uix:NSelectItem.Items>
+                                            <scg:List x:TypeArguments="x:String" Capacity="3">
+                                              <x:String>Please select a download option</x:String>
+                                              <x:String>Green Statement</x:String>
+                                              <x:String>Individual</x:String>
+                                            </scg:List>
+                                          </uix:NSelectItem.Items>
+                                          <uix:NSelectItem.Target>
+                                            <uix:TargetAnchorable BrowserURL="dewa.gov.ae/en/consumer/billing/manage-collective-billing/collective-statements" ContentHash="VqefdeA15UKS8UWmNbBLfA" DesignTimeRectangle="685, 697, 478, 56" ElementType="DropDown" ElementVisibilityArgument="Interactive" FuzzyAccuracy="0.9" FuzzySelectorArgument="&lt;webctrl tag='SELECT' aaname='*Download Options*' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="e4189b6c-26dd-4089-94f2-6e537bb0ef20" InformativeScreenshot="14550ed5e232ab7a3f927780e18539db.jpg" IsResponsive="True" Reference="tbpjGTvoIkq6VAMQdbpjdQ/FTMvIn47T0qNwxinaLkRXQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="[UiPath.UIAutomationNext.Enums.NWaitForReady.Complete]">
+                                              <uix:TargetAnchorable.Anchors>
+                                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                  <uix:Target DesignTimeRectangle="684, 664, 553, 24" ElementType="Text" FuzzyAccuracy="0.9" FuzzySelectorArgument="&lt;webctrl aaname='*Download Options*' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' tag='LABEL' check:innerText='Download Options' /&gt;" Guid="e6af139b-8f3f-4b1b-aa7e-a099d3e27dec" SearchSteps="FuzzySelector" />
+                                                </scg:List>
+                                              </uix:TargetAnchorable.Anchors>
+                                            </uix:TargetAnchorable>
+                                          </uix:NSelectItem.Target>
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </uix:NSelectItem>
+                                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Submit'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="NClick_5" InteractionMode="Simulate" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a60f113c-2639-47b7-9e32-45f0d8e46906" Version="V5">
+                                          <uix:NClick.Target>
+                                            <uix:TargetAnchorable BrowserURL="dewa.gov.ae/en/consumer/billing/manage-collective-billing/collective-statements" ContentHash="RAgJHp37QkOtp7QUaIrENA" DesignTimeRectangle="890, 793, 141, 44" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='submit' aaname='Submit' /&gt;" Guid="bc3751aa-981e-4596-a33d-824635cc8c92" InformativeScreenshot="d14dea467a1b54c647659b47f7b5f6a8.jpg" Reference="tbpjGTvoIkq6VAMQdbpjdQ/X8VGliq-1UidPvB79OAf9Q" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                                          </uix:NClick.Target>
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </uix:NClick>
+                                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Click here to downloadO…'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="NClick_6" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a60f113c-2639-47b7-9e32-45f0d8e46906" Version="V5">
+                                          <uix:NClick.Target>
+                                            <uix:TargetAnchorable BrowserURL="dewa.gov.ae/consumer/billing/manage-collective-billing/collective-statements" ContentHash="0PQBNKArwUm8jjRWHpz0IQ" DesignTimeRectangle="684, 761, 165, 44" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='A' aaname='Click here to downloadOpens in a new window' /&gt;" Guid="f858a0fb-8b94-4712-b8e9-0ed23ac4d5b3" InformativeScreenshot="3d226275e21806bc15e9414ce5f4c33c.jpg" IsResponsive="True" Reference="tbpjGTvoIkq6VAMQdbpjdQ/eq4Gdagwi0iJXWy-2VE01Q" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Complete" />
+                                          </uix:NClick.Target>
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </uix:NClick>
+                                        <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Download Path'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="SameAsCard" ScopeIdentifier="a60f113c-2639-47b7-9e32-45f0d8e46906" Text="[in_Config(&quot;DewaInvoiceDownloadPath&quot;).ToString+Date.Now.ToString(&quot;yyyy&quot;)+&quot;\&quot;+Date.Now.ToString(&quot;MMM&quot;)+&quot;\&quot;+currentText.Trim]" Version="V5">
+                                          <uix:NTypeInto.Target>
+                                            <uix:TargetAnchorable BrowserURL="dewa.gov.ae/consumer/billing/manage-collective-billing/collective-statements" ContentHash="lMn1kREiFUqrNSLtxEWRew" DesignTimeRectangle="133, 926, 1774, 23" ElementType="DropDown" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd aaname='File name:' /&gt;" Guid="1a6ebe90-82f4-4545-bcfc-fac35a5bde23" InformativeScreenshot="ef2223866b024ad32f5d0f1f16d5c7dc.jpg" IsResponsive="True" Reference="tbpjGTvoIkq6VAMQdbpjdQ/HCcm4ob2D0iWSjMIPVRMRA" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='*' title='Save As' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Complete" />
+                                          </uix:NTypeInto.Target>
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </uix:NTypeInto>
+                                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '&amp;Save'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="NClick_7" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a60f113c-2639-47b7-9e32-45f0d8e46906" Version="V5">
+                                          <uix:NClick.Target>
+                                            <uix:TargetAnchorable BrowserURL="dewa.gov.ae/consumer/billing/manage-collective-billing/collective-statements" ContentHash="zn95JaPjOEiwJandyNFCmQ" DesignTimeRectangle="1707, 994, 88, 26" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd aaname='Save' cls='Button' /&gt;" Guid="1f36fa01-80a8-4e26-b6a8-d592bd69c36d" InformativeScreenshot="601ec45787f86e6e8e1dac07d364bee8.jpg" Reference="tbpjGTvoIkq6VAMQdbpjdQ/BG5agy5q80CbeWqcvc4zeA" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='*' title='Save As' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                                          </uix:NClick.Target>
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </uix:NClick>
+                                        <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="Delay_1">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </Delay>
+                                        <aa:Unzip Overwrite="{x:Null}" DisplayName="Unzip-Account Folder" ExtractTo="[in_Config(&quot;DewaInvoiceDownloadPath&quot;).ToString+Date.Now.ToString(&quot;yyyy&quot;)+&quot;\&quot;+Date.Now.ToString(&quot;MMM&quot;)+&quot;\&quot;+currentText.Trim]" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="Unzip_1" ZipFilePath="[in_Config(&quot;DewaInvoiceDownloadPath&quot;).ToString+Date.Now.ToString(&quot;yyyy&quot;)+&quot;\&quot;+Date.Now.ToString(&quot;MMM&quot;)+&quot;\&quot;+currentText.Trim+&quot;.zip&quot;]">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </aa:Unzip>
+                                        <ui:Delete ContinueOnError="{x:Null}" ResourceFile="{x:Null}" DisplayName="Delete File or Folder" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="Delete_1" Path="[in_Config(&quot;DewaInvoiceDownloadPath&quot;).ToString+Date.Now.ToString(&quot;yyyy&quot;)+&quot;\&quot;+Date.Now.ToString(&quot;MMM&quot;)+&quot;\&quot;+currentText.Trim+&quot;.zip&quot;]">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </ui:Delete>
+                                      </Sequence>
+                                    </If.Else>
+                                  </If>
+                                </Sequence>
+                              </If.Else>
+                            </If>
+                          </Sequence>
+                        </ActivityAction>
+                      </ui:ForEach.Body>
+                    </ui:ForEach>
+                  </Sequence>
+                </ActivityAction>
+              </uix:NApplicationCard.Body>
+              <uix:NApplicationCard.OCREngine>
+                <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                  <ActivityFunc.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                  </ActivityFunc.Argument>
+                </ActivityFunc>
+              </uix:NApplicationCard.OCREngine>
+              <uix:NApplicationCard.TargetApp>
+                <uix:TargetApp Area="-8, -8, 1936, 1056" BrowserType="Chrome" ContentHash="-TAL-HkSQ06lwfJM20Ka6g" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAEk0lEQVRYR+2WW2yTZRiAvTMaEy+UCxO9Mdx5SAxXesGFMUKMxkQjhw0k4GQImzAZxwEyGIyDOCAw5jLMGAM2iLoDIHMZp03KtjK2dTAoO9aWdl3X9XxuH98u/4Kj3dYaE2LCkzRNvvfP9z/v97/f+33P8IR5KvD/FAhHwBsMM+IOMOQK4PCFCMqgDCdN4gLhMN7hUdTdRi6pddy+cZ/mxm4am/voGhhF89BFq86BWYSSEZleIBIh1KdH+3sLV+o1qLVmhqwODCYjbdo7XL91BVX7RXp0rehGhrlvdtJr8eENhJUJpmZqgWAIf4uG7vM3adYYsHr9WNxWeYGBLuOgZPwA1UAbdffOUtm2ifNdeaj6K+V3g3tDDtz+6SUmF5Al96vaGWjqksncuANebB4bdq9LvndIeWiciIybUOuqOKXeRvGfaylXF9Jh0BN4/NHHmFQg0NaNTaVBO+yRInPj9DkJRabPaNB6l7O3D5J7KY38+lyR1yuR+MQVCDtc+K62MmCSb213SHZ2qfzES2tg5D7Hb+4jrWIeRxuLpR4mX4a4Av5mDR5ND3q7F4NtCH8woEQSR61rIrt6JctOp9FpuKOMxhIrEP32NzuwW1206w3oRk1KIDlGPVb2Nezi4+J5HLpWjMVlVSITiRGI+AJj287i9FHX3clD+4gSSZ6arl+YU7SAjbW7aepTK6MTiRVwugk90GF0OChvvSaZuJRI8lzrqeeDwhRWnfuestYaZXQisQIuD6F+A2anhRMtVTi8TiWSPI29Dcw+nEp65TY2ny/EF6eWYgUCQcJmK0b7X1TcKmHYZVQiyVOjqWbWgRSWnNrCl+W7ZSt7lMgjYotQtltYb6bX1MlpaSoPzDeUQLKE2X+5iLf2LmJuURZflOZJM/MpsUfECggRk5XBfpU0lPVc7/1ZnBLr6//E5BhkfmkWHx5bzftHs1heeUR6Sew8cQWi/dP+sIeqjlzKWrLps7QrgcQIhoOUqMp4e+8SPju+kde2L6Xgaq0SnUh8ASHscnOh7UcKG1dIf89nyDF1Sx0nJH2kQdsgWafz0U/fMeuHDF7Z9rXsiLvKExOZVCBKv7mNQ1dXUHAlUzLKR2uOP8k4NjmofuuslawzmSNLP/vwGp5fl8qyM0Vxd0CUKQWkHCWb0+TVLWVX3Sr21G+ST3KC2/pOrG6bTOofq+wei55z7X/IAbRfXv4Nn5Zk8W5BJi9sWMzMnWtoGehRZoxlSoEoDu8opc0HyK5aNCax9UIGm2vXsr56Kxtq8llfs5O1VetYeTaT5RVZzD32LW/uSee5dYuYkZMuzaxJmSk+0wpEMTuHOHy9gCXlKaSdWUzGuRXyv5LPj6exoHQ5qWWr+KQ4U16cxks5i3k2O5XXd6yW1Wocq4mpSEggSvQ+UKW5KE0li/cOzued/fN4Y898ZuYt4NXtC3k5ZyEvbkxhxpavROiI3Iq0sn2nP8ITFhhHbzNSrbnMjroSUk/mymGzQfZ6DiknD7C7/le5nnXg8sc2nMlIWmCc6AXF7ffKMWvH6nHiDwWVSHL8a4H/iqcCT1gA/ga3KhOy9QLfXwAAAABJRU5ErkJggg==" InformativeScreenshot="35e582224f0e9a5bc7a5e3c0990c65b7.jpg" Reference="tbpjGTvoIkq6VAMQdbpjdQ/LuLFo0gL00ShJky-hC9xpg" Selector="&lt;html app='chrome.exe' title='*' idx='2' /&gt;" Url="https://www.dewa.gov.ae/en/consumer/my-account/login" Version="V3">
+                  <uix:TargetApp.SapInfo>
+                    <uix:SAPElementInfo IsSapSubsystem="False" WebAutomationFramework="Default" />
+                  </uix:TargetApp.SapInfo>
+                </uix:TargetApp>
+              </uix:NApplicationCard.TargetApp>
+            </uix:NApplicationCard>
+          </Sequence>
+        </TryCatch.Try>
+        <TryCatch.Catches>
+          <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+            <ActivityAction x:TypeArguments="s:Exception">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Catch" sap:VirtualizedContainerService.HintSize="594,90" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </ActivityAction>
+          </Catch>
+        </TryCatch.Catches>
+        <TryCatch.Finally>
+          <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="594,25" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </TryCatch.Finally>
+      </TryCatch>
+    </Sequence>
+  </Sequence>
+</Activity>

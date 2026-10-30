@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Collective Contract Acc…",
+  "Type": "Element",
+  "TaxonomyType": "Dropdown",
+  "Id": "AXXUq9JLhk-B3zOAk4g_Sw",
+  "Reference": "tbpjGTvoIkq6VAMQdbpjdQ/AXXUq9JLhk-B3zOAk4g_Sw",
+  "ParentRef": "tbpjGTvoIkq6VAMQdbpjdQ/LuLFo0gL00ShJky-hC9xpg",
+  "Created": "2026-10-30T11:06:51.9036132Z",
+  "Updated": "2026-10-30T11:06:51.9036132Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.6.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.9.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

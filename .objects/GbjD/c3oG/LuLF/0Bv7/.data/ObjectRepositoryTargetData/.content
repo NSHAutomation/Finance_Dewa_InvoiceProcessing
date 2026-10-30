@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="h2hX7rB-qkqepSqsOlgI3g" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="dewa.gov.ae/en/consumer/my-account/dashboard" DesignTimeRectangle="293, 248, 26, 18" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl aaname='MENU' tag='BUTTON' class='m12-menu_expandable' /&gt;&lt;webctrl tag='SPAN' class='m12-menu_bar--wrapper' /&gt;" Guid="88e9d391-28cf-42ff-8908-d9e160aebe78" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Complete">
+      <imageRef attrName="InformativeScreenshot" originalValue="b5c43bf8662a15b9fc50a1c3d6c65380.jpg" xmlns="">0ulpIq0ZQSEyLfjpdYkHaNg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

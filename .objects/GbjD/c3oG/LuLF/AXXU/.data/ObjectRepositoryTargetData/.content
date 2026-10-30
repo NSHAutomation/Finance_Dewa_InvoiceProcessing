@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="F-RgGhhXOEmyI6cNPFGxqg" Reference="tbpjGTvoIkq6VAMQdbpjdQ/AXXUq9JLhk-B3zOAk4g_Sw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="dewa.gov.ae/en/consumer/billing/manage-collective-billing/collective-statements" DesignTimeRectangle="685, 576, 551, 56" ElementType="DropDown" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='SELECT' id='form-field-accounts' /&gt;" FuzzyAccuracy="0.9" FuzzySelectorArgument="&lt;webctrl tag='SELECT' aaname='Collective*Contract*Account*' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="7777a53f-76e1-48c3-ac43-277b0bfe19a2" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="1">
+          <Target DesignTimeRectangle="684, 543, 553, 24" ElementType="Text" FuzzyAccuracy="0.9" FuzzySelectorArgument="&lt;webctrl tag='LABEL' aaname='*Collective Contract Account*' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='Collective Contract Account' /&gt;" Guid="f48c9958-5b2d-43bc-bd59-cefa3e1710c3" SearchSteps="FuzzySelector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="84b52f753509f51949fb1bf54db7709b.jpg" xmlns="">0hn36coTg7EC-bjO4NTdWKw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">GetAttributeGeneric</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

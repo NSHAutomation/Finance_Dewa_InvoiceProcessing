@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Download Options",
+  "Type": "Element",
+  "TaxonomyType": "Dropdown",
+  "Id": "FTMvIn47T0qNwxinaLkRXQ",
+  "Reference": "tbpjGTvoIkq6VAMQdbpjdQ/FTMvIn47T0qNwxinaLkRXQ",
+  "ParentRef": "tbpjGTvoIkq6VAMQdbpjdQ/LuLFo0gL00ShJky-hC9xpg",
+  "Created": "2026-10-30T11:12:16.4318791Z",
+  "Updated": "2026-10-30T11:12:16.4318791Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.6.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.9.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
