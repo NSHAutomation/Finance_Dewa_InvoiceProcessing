@@ -1,9 +1,12 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="UpdateDewaExcelTemplate" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="UpdateDewaExcelTemplate" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:umae="clr-namespace:UiPath.Mail.Activities.Enums;assembly=UiPath.Mail.Activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
+    <x:Property Name="in_TransactionItem" Type="InArgument(x:String)" />
     <x:Property Name="in_dewaInvoiceExtractionResponseJObj" Type="InArgument(njl:JObject)" />
     <x:Property Name="in_dt_DewaTemplate" Type="InArgument(sd:DataTable)" />
-    <x:Property Name="in_TransactionItem" Type="InArgument(x:String)" />
+    <x:Property Name="in_CurrentFile" Type="InArgument(x:String)" />
     <x:Property Name="in_dt_DewaTemplateStatus" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="out_Is_FileProcesses" Type="OutArgument(x:Boolean)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -48,6 +51,15 @@
       <x:String>UiPath.Excel</x:String>
       <x:String>UiPath.Platform.ResourceHandling</x:String>
       <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.MicrosoftOffice365.Activities.Mail.Enums</x:String>
+      <x:String>UiPath.Shared.Activities.Utils</x:String>
+      <x:String>UiPath.Mail.Activities.Enums</x:String>
+      <x:String>UiPath.Mail.SMTP.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -109,9 +121,19 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
       <AssemblyReference>System.Memory.Data</AssemblyReference>
       <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="UpdateDewaExcelTemplate" sap:VirtualizedContainerService.HintSize="1252,5551" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="UpdateDewaExcelTemplate" sap:VirtualizedContainerService.HintSize="1913,6379" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="issueDate" />
       <Variable x:TypeArguments="x:String" Name="period" />
@@ -142,21 +164,21 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap:VirtualizedContainerService.HintSize="650,5528" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="Sequence-Update Dewa Excel" sap:VirtualizedContainerService.HintSize="756,6356" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="616,5445" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch DisplayName="Try Catch-Update Dewa Excel" sap:VirtualizedContainerService.HintSize="722,6273" sap2010:WorkflowViewState.IdRef="TryCatch_1">
         <TryCatch.Try>
-          <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="450,5198" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="720,5373" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign DisplayName="Assign-Issue Date" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign DisplayName="Assign-Issue Date" sap:VirtualizedContainerService.HintSize="686,175" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[issueDate]</OutArgument>
               </Assign.To>
@@ -164,7 +186,7 @@
                 <InArgument x:TypeArguments="x:String">[If(in_dewaInvoiceExtractionResponseJObj("issueDate").ToString="",CDbl(0).ToString,in_dewaInvoiceExtractionResponseJObj("issueDate").ToString)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign-Month" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign DisplayName="Assign-Month" sap:VirtualizedContainerService.HintSize="686,175" sap2010:WorkflowViewState.IdRef="Assign_2">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[month]</OutArgument>
               </Assign.To>
@@ -172,7 +194,7 @@
                 <InArgument x:TypeArguments="x:String">[If(in_dewaInvoiceExtractionResponseJObj("month").ToString="",CDbl(0).ToString,in_dewaInvoiceExtractionResponseJObj("month").ToString)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign-Period" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_3">
+            <Assign DisplayName="Assign-Period" sap:VirtualizedContainerService.HintSize="686,175" sap2010:WorkflowViewState.IdRef="Assign_3">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[period]</OutArgument>
               </Assign.To>
@@ -180,7 +202,7 @@
                 <InArgument x:TypeArguments="x:String">[If(in_dewaInvoiceExtractionResponseJObj("period").ToString="",CDbl(0).ToString,in_dewaInvoiceExtractionResponseJObj("period").ToString)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign-Invoice Number" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_4">
+            <Assign DisplayName="Assign-Invoice Number" sap:VirtualizedContainerService.HintSize="686,175" sap2010:WorkflowViewState.IdRef="Assign_4">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[invoiceNumber]</OutArgument>
               </Assign.To>
@@ -188,7 +210,7 @@
                 <InArgument x:TypeArguments="x:String">[If(in_dewaInvoiceExtractionResponseJObj("invoiceNumber").ToString="",CDbl(0).ToString,in_dewaInvoiceExtractionResponseJObj("invoiceNumber").ToString)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign-Account Number" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_5">
+            <Assign DisplayName="Assign-Account Number" sap:VirtualizedContainerService.HintSize="686,175" sap2010:WorkflowViewState.IdRef="Assign_5">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[accountNumber]</OutArgument>
               </Assign.To>
@@ -196,7 +218,7 @@
                 <InArgument x:TypeArguments="x:String">[If(in_dewaInvoiceExtractionResponseJObj("accountNumber").ToString="",CDbl(0).ToString,in_dewaInvoiceExtractionResponseJObj("accountNumber").ToString)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign-Beneficiary Name" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_6">
+            <Assign DisplayName="Assign-Beneficiary Name" sap:VirtualizedContainerService.HintSize="686,175" sap2010:WorkflowViewState.IdRef="Assign_6">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[beneficiaryName]</OutArgument>
               </Assign.To>
@@ -204,7 +226,7 @@
                 <InArgument x:TypeArguments="x:String">[If(in_dewaInvoiceExtractionResponseJObj("beneficiaryName").ToString="",CDbl(0).ToString,in_dewaInvoiceExtractionResponseJObj("beneficiaryName").ToString)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign-Premise Number" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_7">
+            <Assign DisplayName="Assign-Premise Number" sap:VirtualizedContainerService.HintSize="686,175" sap2010:WorkflowViewState.IdRef="Assign_7">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[premiseNumber]</OutArgument>
               </Assign.To>
@@ -212,7 +234,7 @@
                 <InArgument x:TypeArguments="x:String">[If(in_dewaInvoiceExtractionResponseJObj("premiseNumber").ToString="",CDbl(0).ToString,in_dewaInvoiceExtractionResponseJObj("premiseNumber").ToString)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign-Due Date" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_8">
+            <Assign DisplayName="Assign-Due Date" sap:VirtualizedContainerService.HintSize="686,175" sap2010:WorkflowViewState.IdRef="Assign_8">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[dueDate]</OutArgument>
               </Assign.To>
@@ -220,7 +242,7 @@
                 <InArgument x:TypeArguments="x:String">[If(in_dewaInvoiceExtractionResponseJObj("dueDate").ToString="",CDbl(0).ToString,in_dewaInvoiceExtractionResponseJObj("dueDate").ToString)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign-Total Of Dubai Municipality" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_9">
+            <Assign DisplayName="Assign-Total Of Dubai Municipality" sap:VirtualizedContainerService.HintSize="686,175" sap2010:WorkflowViewState.IdRef="Assign_9">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[totalOfDubaiMunicipality]</OutArgument>
               </Assign.To>
@@ -228,7 +250,7 @@
                 <InArgument x:TypeArguments="x:String">[If(in_dewaInvoiceExtractionResponseJObj("sewerage").ToString="",CDbl(0).ToString,in_dewaInvoiceExtractionResponseJObj("sewerage").ToString)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign-Additional Charges" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_10">
+            <Assign DisplayName="Assign-Additional Charges" sap:VirtualizedContainerService.HintSize="686,175" sap2010:WorkflowViewState.IdRef="Assign_10">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[additionalCharges]</OutArgument>
               </Assign.To>
@@ -236,7 +258,7 @@
                 <InArgument x:TypeArguments="x:String">[If(in_dewaInvoiceExtractionResponseJObj("additionalCharges").ToString="",CDbl(0).ToString,in_dewaInvoiceExtractionResponseJObj("additionalCharges").ToString)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign-Current Month Total" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_11">
+            <Assign DisplayName="Assign-Current Month Total" sap:VirtualizedContainerService.HintSize="686,175" sap2010:WorkflowViewState.IdRef="Assign_11">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[currentMonthTotal]</OutArgument>
               </Assign.To>
@@ -244,7 +266,7 @@
                 <InArgument x:TypeArguments="x:String">[If(in_dewaInvoiceExtractionResponseJObj("currentMonthTotal").ToString="",CDbl(0).ToString,in_dewaInvoiceExtractionResponseJObj("currentMonthTotal").ToString)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign-Previous Bill Balance" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_12">
+            <Assign DisplayName="Assign-Previous Bill Balance" sap:VirtualizedContainerService.HintSize="686,175" sap2010:WorkflowViewState.IdRef="Assign_12">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[previousBillBalance]</OutArgument>
               </Assign.To>
@@ -252,7 +274,7 @@
                 <InArgument x:TypeArguments="x:String">[If(in_dewaInvoiceExtractionResponseJObj("previousBillBalance").ToString="",CDbl(0).ToString,in_dewaInvoiceExtractionResponseJObj("previousBillBalance").ToString)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign-Adjustments" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_13">
+            <Assign DisplayName="Assign-Adjustments" sap:VirtualizedContainerService.HintSize="686,175" sap2010:WorkflowViewState.IdRef="Assign_13">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[adjustments]</OutArgument>
               </Assign.To>
@@ -260,7 +282,7 @@
                 <InArgument x:TypeArguments="x:String">[If(in_dewaInvoiceExtractionResponseJObj("adjustments").ToString="",CDbl(0).ToString,in_dewaInvoiceExtractionResponseJObj("adjustments").ToString)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign-Payment Recived" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_14">
+            <Assign DisplayName="Assign-Payment Recived" sap:VirtualizedContainerService.HintSize="686,175" sap2010:WorkflowViewState.IdRef="Assign_14">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[paymentRecived]</OutArgument>
               </Assign.To>
@@ -268,7 +290,7 @@
                 <InArgument x:TypeArguments="x:String">[If(in_dewaInvoiceExtractionResponseJObj("paymentRecived").ToString="",CDbl(0).ToString,in_dewaInvoiceExtractionResponseJObj("paymentRecived").ToString)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign-Total Due In Vat" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_15">
+            <Assign DisplayName="Assign-Total Due In Vat" sap:VirtualizedContainerService.HintSize="686,175" sap2010:WorkflowViewState.IdRef="Assign_15">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[totalDueInVAT]</OutArgument>
               </Assign.To>
@@ -276,7 +298,7 @@
                 <InArgument x:TypeArguments="x:String">[If(in_dewaInvoiceExtractionResponseJObj("totalDueInVAT").ToString="",CDbl(0).ToString,in_dewaInvoiceExtractionResponseJObj("totalDueInVAT").ToString)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign-Current Month VAT" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_16">
+            <Assign DisplayName="Assign-Current Month VAT" sap:VirtualizedContainerService.HintSize="686,175" sap2010:WorkflowViewState.IdRef="Assign_16">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[currentMonthWithVAT]</OutArgument>
               </Assign.To>
@@ -284,7 +306,7 @@
                 <InArgument x:TypeArguments="x:String">[If(in_dewaInvoiceExtractionResponseJObj("currentMonthWithVAT").ToString="",CDbl(0).ToString,in_dewaInvoiceExtractionResponseJObj("currentMonthWithVAT").ToString)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign-Electricity" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_17">
+            <Assign DisplayName="Assign-Electricity" sap:VirtualizedContainerService.HintSize="686,175" sap2010:WorkflowViewState.IdRef="Assign_17">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[electricity]</OutArgument>
               </Assign.To>
@@ -292,7 +314,7 @@
                 <InArgument x:TypeArguments="x:String">[If(in_dewaInvoiceExtractionResponseJObj("electricity").ToString="",CDbl(0).ToString,in_dewaInvoiceExtractionResponseJObj("electricity").ToString)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign-Water" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_18">
+            <Assign DisplayName="Assign-Water" sap:VirtualizedContainerService.HintSize="686,175" sap2010:WorkflowViewState.IdRef="Assign_18">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[water]</OutArgument>
               </Assign.To>
@@ -300,7 +322,7 @@
                 <InArgument x:TypeArguments="x:String">[If(in_dewaInvoiceExtractionResponseJObj("water").ToString="",CDbl(0).ToString,in_dewaInvoiceExtractionResponseJObj("water").ToString)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign-Other Services" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_19">
+            <Assign DisplayName="Assign-Other Services" sap:VirtualizedContainerService.HintSize="686,175" sap2010:WorkflowViewState.IdRef="Assign_19">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[otherServices]</OutArgument>
               </Assign.To>
@@ -308,7 +330,7 @@
                 <InArgument x:TypeArguments="x:String">[If(in_dewaInvoiceExtractionResponseJObj("otherServices").ToString="",CDbl(0).ToString,in_dewaInvoiceExtractionResponseJObj("otherServices").ToString)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign-Housing" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_20">
+            <Assign DisplayName="Assign-Housing" sap:VirtualizedContainerService.HintSize="686,175" sap2010:WorkflowViewState.IdRef="Assign_20">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[housing]</OutArgument>
               </Assign.To>
@@ -316,7 +338,7 @@
                 <InArgument x:TypeArguments="x:String">[If(in_dewaInvoiceExtractionResponseJObj("housing").ToString="",CDbl(0).ToString,in_dewaInvoiceExtractionResponseJObj("housing").ToString)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign-Sewerage" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_21">
+            <Assign DisplayName="Assign-Sewerage" sap:VirtualizedContainerService.HintSize="686,175" sap2010:WorkflowViewState.IdRef="Assign_21">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[sewerage]</OutArgument>
               </Assign.To>
@@ -324,7 +346,7 @@
                 <InArgument x:TypeArguments="x:String">[If(in_dewaInvoiceExtractionResponseJObj("sewerage").ToString="",CDbl(0).ToString,in_dewaInvoiceExtractionResponseJObj("sewerage").ToString)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign-Irrigation" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_22">
+            <Assign DisplayName="Assign-Irrigation" sap:VirtualizedContainerService.HintSize="686,175" sap2010:WorkflowViewState.IdRef="Assign_22">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[irrigation]</OutArgument>
               </Assign.To>
@@ -332,20 +354,28 @@
                 <InArgument x:TypeArguments="x:String">[If(in_dewaInvoiceExtractionResponseJObj("irrigation").ToString="",CDbl(0).ToString,in_dewaInvoiceExtractionResponseJObj("irrigation").ToString)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign-File Name" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="Assign_23">
+            <Assign DisplayName="Assign-File Name" sap:VirtualizedContainerService.HintSize="686,175" sap2010:WorkflowViewState.IdRef="Assign_23">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[fileName]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[in_TransactionItem.split("\"c).Last()]</InArgument>
+                <InArgument x:TypeArguments="x:String">[in_CurrentFile.split("\"c).Last()]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&#xA;&#x9;issueDate,&#xA;&#x9;month,&#xA;&#x9;period,&#xA;&#x9;invoiceNumber,&#xA;&#x9;accountNumber,&#xA;&#x9;beneficiaryName,&#xA;&#x9;premiseNumber,&#xA;&#x9;dueDate,&#xA;&#x9;totalOfDubaiMunicipality,&#xA;&#x9;additionalCharges,&#xA;&#x9;currentMonthTotal,&#xA;&#x9;previousBillBalance,&#xA;&#x9;adjustments,&#xA;&#x9;paymentRecived,&#xA;&#x9;totalDueInVAT,&#xA;&#x9;currentMonthWithVAT,&#xA;&#x9;electricity,&#xA;&#x9;water,&#xA;&#x9;otherServices,&#xA;&#x9;housing,&#xA;&#x9;sewerage,&#xA;&#x9;irrigation,&#xA;&#x9;fileName&#xA;}]" DataTable="[in_dt_DewaTemplate]" DisplayName="Add Data Row-DewaTemplate" sap:VirtualizedContainerService.HintSize="416,221" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
-            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&#xA;&#x9;issueDate,&#xA;&#x9;month,&#xA;&#x9;period,&#xA;&#x9;invoiceNumber,&#xA;&#x9;accountNumber,&#xA;&#x9;beneficiaryName,&#xA;&#x9;premiseNumber,&#xA;&#x9;dueDate,&#xA;&#x9;totalOfDubaiMunicipality,&#xA;&#x9;additionalCharges,&#xA;&#x9;currentMonthTotal,&#xA;&#x9;previousBillBalance,&#xA;&#x9;adjustments,&#xA;&#x9;paymentRecived,&#xA;&#x9;totalDueInVAT,&#xA;&#x9;currentMonthWithVAT,&#xA;&#x9;electricity,&#xA;&#x9;water,&#xA;&#x9;otherServices,&#xA;&#x9;housing,&#xA;&#x9;sewerage,&#xA;&#x9;irrigation,&#xA;&#x9;fileName&#xA;}]" DataTable="[in_dt_DewaTemplateStatus]" DisplayName="Add Data Row-DewaTemplate" sap:VirtualizedContainerService.HintSize="416,221" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
-            <ui:AppendRange DataTable="[in_dt_DewaTemplate]" DisplayName="Append Range Workbook-Dewa Template" sap:VirtualizedContainerService.HintSize="416,227" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Sheet1" WorkbookPath="[&quot;C:\Users\SalesBot\Desktop\LAPBOT\Finance\Dewa_Invoice\Inputs\&quot;+Date.Now.ToString(&quot;yyyy&quot;)+&quot;\&quot;+Date.Now.ToString(&quot;MMM&quot;)+&quot;\DewaTemplate.xlsx&quot;]" />
-            <ui:AppendRange DataTable="[in_dt_DewaTemplateStatus]" DisplayName="Append Range Workbook-Dewa Template" sap:VirtualizedContainerService.HintSize="416,227" sap2010:WorkflowViewState.IdRef="AppendRange_2" SheetName="Sheet1" WorkbookPath="[&quot;C:\Users\SalesBot\Desktop\LAPBOT\Finance\Dewa_Invoice\Inputs\&quot;+Date.Now.ToString(&quot;yyyy&quot;)+&quot;\&quot;+Date.Now.ToString(&quot;MMM&quot;)+&quot;\DewaTemplateStatus.xlsx&quot;]" />
-            <ui:ClearDataTable DataTable="[in_dt_DewaTemplate]" DisplayName="Clear Data Table-DewaTemplate" sap:VirtualizedContainerService.HintSize="416,113" sap2010:WorkflowViewState.IdRef="ClearDataTable_1" />
-            <ui:ClearDataTable DataTable="[in_dt_DewaTemplateStatus]" DisplayName="Clear Data Table-DewaTemplate" sap:VirtualizedContainerService.HintSize="416,104" sap2010:WorkflowViewState.IdRef="ClearDataTable_2" />
+            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&#xA;&#x9;issueDate,&#xA;&#x9;month,&#xA;&#x9;period,&#xA;&#x9;invoiceNumber,&#xA;&#x9;accountNumber,&#xA;&#x9;beneficiaryName,&#xA;&#x9;premiseNumber,&#xA;&#x9;dueDate,&#xA;&#x9;totalOfDubaiMunicipality,&#xA;&#x9;additionalCharges,&#xA;&#x9;currentMonthTotal,&#xA;&#x9;previousBillBalance,&#xA;&#x9;adjustments,&#xA;&#x9;paymentRecived,&#xA;&#x9;totalDueInVAT,&#xA;&#x9;currentMonthWithVAT,&#xA;&#x9;electricity,&#xA;&#x9;water,&#xA;&#x9;otherServices,&#xA;&#x9;housing,&#xA;&#x9;sewerage,&#xA;&#x9;irrigation,&#xA;&#x9;fileName&#xA;}]" DataTable="[in_dt_DewaTemplate]" DisplayName="Add Data Row-DewaTemplate" sap:VirtualizedContainerService.HintSize="686,221" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{&#xA;&#x9;issueDate,&#xA;&#x9;month,&#xA;&#x9;period,&#xA;&#x9;invoiceNumber,&#xA;&#x9;accountNumber,&#xA;&#x9;beneficiaryName,&#xA;&#x9;premiseNumber,&#xA;&#x9;dueDate,&#xA;&#x9;totalOfDubaiMunicipality,&#xA;&#x9;additionalCharges,&#xA;&#x9;currentMonthTotal,&#xA;&#x9;previousBillBalance,&#xA;&#x9;adjustments,&#xA;&#x9;paymentRecived,&#xA;&#x9;totalDueInVAT,&#xA;&#x9;currentMonthWithVAT,&#xA;&#x9;electricity,&#xA;&#x9;water,&#xA;&#x9;otherServices,&#xA;&#x9;housing,&#xA;&#x9;sewerage,&#xA;&#x9;irrigation,&#xA;&#x9;fileName&#xA;}]" DataTable="[in_dt_DewaTemplateStatus]" DisplayName="Add Data Row-DewaTemplateStatus" sap:VirtualizedContainerService.HintSize="686,221" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+            <ui:AppendRange DataTable="[in_dt_DewaTemplate]" DisplayName="Append Range Workbook-Dewa Template" sap:VirtualizedContainerService.HintSize="686,227" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Sheet1" WorkbookPath="[in_Config(&quot;DewaInvoiceDownloadPath&quot;).ToString+Date.Now.ToString(&quot;yyyy&quot;)+&quot;\&quot;+Date.Now.ToString(&quot;MMM&quot;)+&quot;\&quot;+in_TransactionItem.Split(&quot;\&quot;c).last()+&quot;\DewaTemplate.xlsx&quot;]" />
+            <ui:AppendRange DataTable="[in_dt_DewaTemplateStatus]" DisplayName="Append Range Workbook-Dewa TemplateStatus" sap:VirtualizedContainerService.HintSize="686,227" sap2010:WorkflowViewState.IdRef="AppendRange_2" SheetName="Sheet1" WorkbookPath="[in_Config(&quot;DewaInvoiceDownloadPath&quot;).ToString+Date.Now.ToString(&quot;yyyy&quot;)+&quot;\&quot;+Date.Now.ToString(&quot;MMM&quot;)+&quot;\&quot;+in_TransactionItem.Split(&quot;\&quot;c).last()+&quot;\DewaTemplateStatus.xlsx&quot;]" />
+            <ui:ClearDataTable DataTable="[in_dt_DewaTemplate]" DisplayName="Clear Data Table-DewaTemplate" sap:VirtualizedContainerService.HintSize="686,113" sap2010:WorkflowViewState.IdRef="ClearDataTable_1" />
+            <ui:ClearDataTable DataTable="[in_dt_DewaTemplateStatus]" DisplayName="Clear Data Table-DewaTemplateStatus" sap:VirtualizedContainerService.HintSize="686,113" sap2010:WorkflowViewState.IdRef="ClearDataTable_2" />
+            <Assign DisplayName="Assign-Is File Processes" sap:VirtualizedContainerService.HintSize="686,166" sap2010:WorkflowViewState.IdRef="Assign_24">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Boolean">[out_Is_FileProcesses]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+              </Assign.Value>
+            </Assign>
           </Sequence>
         </TryCatch.Try>
         <TryCatch.Catches>
@@ -354,18 +384,57 @@
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Catch" sap:VirtualizedContainerService.HintSize="450,90" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <Sequence DisplayName="Catch" sap:VirtualizedContainerService.HintSize="720,743" sap2010:WorkflowViewState.IdRef="Sequence_4">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
+                <Assign DisplayName="Assign-Is File Processes" sap:VirtualizedContainerService.HintSize="686,175" sap2010:WorkflowViewState.IdRef="Assign_25">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Boolean">[out_Is_FileProcesses]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Boolean">[False]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="686,219" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                  <ui:CommentOut.Body>
+                    <Sequence DisplayName="Ignored activities" sap:VirtualizedContainerService.HintSize="650,108" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:SendOutlookMail Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" UseRichTextEditor="{x:Null}" Account="automation@nshama.ae" Bcc="[in_Config(&quot;MailBCC&quot;).ToString]" Body="[in_Config(&quot;SystemExceptionBody&quot;).ToString.Replace(&quot;PATH&quot;, &quot;Error while updating dewa template, file path: &quot;+in_CurrentFile)]" ConnectionMode="LegacyConfiguration" CreatedAfterSolutionSupport="False" DisplayName="Send Outlook Desktop Mail Message-System Exception Update Dewa Template" sap:VirtualizedContainerService.HintSize="616,48" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" Importance="High" IsBodyHtml="True" IsDraft="False" Sensitivity="Normal" Subject="[in_Config(&quot;SystemExceptionMailSubject&quot;).ToString]" To="[in_Config(&quot;MailTo&quot;).ToString]" UseISConnection="False">
+                        <ui:SendOutlookMail.ConnectionDetailsBackupSlot>
+                          <usau:BackupSlot x:TypeArguments="umae:ConnectionDetails" StoredValue="{x:Null}">
+                            <usau:BackupSlot.BackupValues>
+                              <scg:Dictionary x:TypeArguments="umae:ConnectionDetails, scg:List(x:Object)" />
+                            </usau:BackupSlot.BackupValues>
+                          </usau:BackupSlot>
+                        </ui:SendOutlookMail.ConnectionDetailsBackupSlot>
+                        <ui:SendOutlookMail.Files>
+                          <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                        </ui:SendOutlookMail.Files>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:SendOutlookMail>
+                    </Sequence>
+                  </ui:CommentOut.Body>
+                </ui:CommentOut>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="686,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[exception.Message+Environment.NewLine+exception.Source]" />
+                <Throw Exception="[new SystemException(&quot;Failed To Update Dewa Excel Template&quot;)]" sap:VirtualizedContainerService.HintSize="686,114" sap2010:WorkflowViewState.IdRef="Throw_1" />
               </Sequence>
             </ActivityAction>
           </Catch>
         </TryCatch.Catches>
         <TryCatch.Finally>
-          <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="450,25" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="720,25" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>

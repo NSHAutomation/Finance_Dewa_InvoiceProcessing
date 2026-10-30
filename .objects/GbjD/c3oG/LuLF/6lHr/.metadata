@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Collective Statement",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "6lHrtxmKBkySbpaPdyawiA",
+  "Reference": "tbpjGTvoIkq6VAMQdbpjdQ/6lHrtxmKBkySbpaPdyawiA",
+  "ParentRef": "tbpjGTvoIkq6VAMQdbpjdQ/LuLFo0gL00ShJky-hC9xpg",
+  "Created": "2026-10-30T11:03:14.3043853Z",
+  "Updated": "2026-10-30T11:03:14.3043853Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.6.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.9.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
