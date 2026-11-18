@@ -137,16 +137,12 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1913,2605" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="859,2670" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="njl:JObject" Name="dewaInvoiceExtractionResponseJObj" />
       <Variable x:TypeArguments="x:Boolean" Name="is_AlreadyProcessed" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_Data" />
-      <Variable x:TypeArguments="x:Int32" Name="counterRowIndex">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:Int32" Value="1" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:Int32" Default="1" Name="counterRowIndex" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -154,10 +150,10 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="540,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
-    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="540,89" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
-    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_Data]" DisplayName="Read Range Workbook-Bot Status Dewa Template" sap:VirtualizedContainerService.HintSize="540,227" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Sheet1" WorkbookPath="[in_Config(&quot;DewaInvoiceDownloadPath&quot;).ToString+Date.Now.ToString(&quot;yyyy&quot;)+&quot;\&quot;+Date.Now.ToString(&quot;MMM&quot;)+&quot;\&quot;+in_TransactionItem.Split(&quot;\&quot;c).Last()+&quot;\DewaTemplateStatus.xlsx&quot;]" />
-    <ui:ForEachFileX DisplayName="For Each File in Folder" Folder="[in_TransactionItem]" sap:VirtualizedContainerService.HintSize="540,1848" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="524,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
+    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="524,89" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_Data]" DisplayName="Read Range Workbook-Bot Status Dewa Template" sap:VirtualizedContainerService.HintSize="524,227" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Sheet1" WorkbookPath="[in_Config(&quot;DewaInvoiceDownloadPath&quot;).ToString+Date.Now.ToString(&quot;yyyy&quot;)+&quot;\&quot;+Date.Now.ToString(&quot;MMM&quot;)+&quot;\&quot;+in_TransactionItem.Split(&quot;\&quot;c).Last()+&quot;\DewaTemplateStatus.xlsx&quot;]" />
+    <ui:ForEachFileX DisplayName="For Each File in Folder" Folder="[in_TransactionItem]" sap:VirtualizedContainerService.HintSize="524,1913" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
       <ui:ForEachFileX.Body>
         <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
           <ActivityAction.Argument1>
@@ -166,22 +162,22 @@
           <ActivityAction.Argument2>
             <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
           </ActivityAction.Argument2>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="538,1666" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="522,1731" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[currentFile.FullName.EndsWith(&quot;.pdf&quot;)]" DisplayName="If-File Only With PDF" sap:VirtualizedContainerService.HintSize="504,1606" sap2010:WorkflowViewState.IdRef="If_2">
+            <If Condition="[currentFile.FullName.EndsWith(&quot;.pdf&quot;)]" DisplayName="If-File Only With PDF" sap:VirtualizedContainerService.HintSize="488,1671" sap2010:WorkflowViewState.IdRef="If_2">
               <If.Then>
-                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="502,1419" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="486,1419" sap2010:WorkflowViewState.IdRef="Sequence_5">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="468,175" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[currentFile.FullName+&quot; Processing File&quot;]" />
-                  <Assign DisplayName="Assign-Counter++" sap:VirtualizedContainerService.HintSize="468,175" sap2010:WorkflowViewState.IdRef="Assign_2">
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[currentFile.FullName+&quot; Processing File&quot;]" />
+                  <Assign DisplayName="Assign-Counter++" sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="Assign_2">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Int32">[counterRowIndex]</OutArgument>
                     </Assign.To>
@@ -189,7 +185,7 @@
                       <InArgument x:TypeArguments="x:Int32">[counterRowIndex+1]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <Assign DisplayName="Assign - Validate If Transaction Is Already Processed" sap:VirtualizedContainerService.HintSize="468,57" sap2010:WorkflowViewState.IdRef="Assign_1">
+                  <Assign DisplayName="Assign - Validate If Transaction Is Already Processed" sap:VirtualizedContainerService.HintSize="452,57" sap2010:WorkflowViewState.IdRef="Assign_1">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:Boolean">[is_AlreadyProcessed]</OutArgument>
                     </Assign.To>
@@ -207,7 +203,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </Assign>
-                  <If Condition="[is_AlreadyProcessed]" DisplayName="If-Validate If Transaction Is Already Processed" sap:VirtualizedContainerService.HintSize="468,952" sap2010:WorkflowViewState.IdRef="If_1">
+                  <If Condition="[is_AlreadyProcessed]" DisplayName="If-Validate If Transaction Is Already Processed" sap:VirtualizedContainerService.HintSize="452,952" sap2010:WorkflowViewState.IdRef="If_1">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -215,17 +211,17 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <If.Then>
-                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="466,226" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,226" sap2010:WorkflowViewState.IdRef="Sequence_3">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="432,166" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[currentFile.FullName+&quot; Transaction Already Processed&quot;]" />
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[currentFile.FullName+&quot; Transaction Already Processed&quot;]" />
                       </Sequence>
                     </If.Then>
                     <If.Else>
-                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="466,564" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,564" sap2010:WorkflowViewState.IdRef="Sequence_2">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:Boolean" Name="is_FileProcessed" />
                         </Sequence.Variables>
@@ -235,7 +231,7 @@
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="MistralAi_InvoiceExtractData - Invoke Workflow File (DeveloperFramework\MistralAi_InvoiceExtractData.xaml)" sap:VirtualizedContainerService.HintSize="432,57" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DeveloperFramework\MistralAi_InvoiceExtractData.xaml">
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="MistralAi_InvoiceExtractData - Invoke Workflow File (DeveloperFramework\MistralAi_InvoiceExtractData.xaml)" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DeveloperFramework\MistralAi_InvoiceExtractData.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="x:String" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
                             <InArgument x:TypeArguments="x:String" x:Key="in_CurrentFile">[currentFile.FullName]</InArgument>
@@ -249,7 +245,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:InvokeWorkflowFile>
-                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="UpdateDewaExcelTemplate - Invoke Workflow File (DeveloperFramework\UpdateDewaExcelTemplate.xaml)" sap:VirtualizedContainerService.HintSize="432,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="DeveloperFramework\UpdateDewaExcelTemplate.xaml">
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" DisplayName="UpdateDewaExcelTemplate - Invoke Workflow File (DeveloperFramework\UpdateDewaExcelTemplate.xaml)" sap:VirtualizedContainerService.HintSize="416,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="DeveloperFramework\UpdateDewaExcelTemplate.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="x:String" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
                             <InArgument x:TypeArguments="njl:JObject" x:Key="in_dewaInvoiceExtractionResponseJObj">[dewaInvoiceExtractionResponseJObj]</InArgument>
@@ -266,17 +262,18 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:InvokeWorkflowFile>
-                        <ui:WriteCell Cell="[&quot;X&quot;+counterRowIndex.ToString]" DisplayName="Update Dewa invoice processing status in Excel" sap:VirtualizedContainerService.HintSize="432,270" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="Sheet1" Text="[If(is_FileProcessed,&quot;Success&quot;,&quot;Retry&quot;)]" WorkbookPath="[in_Config(&quot;DewaInvoiceDownloadPath&quot;).ToString+Date.Now.ToString(&quot;yyyy&quot;)+&quot;\&quot;+Date.Now.ToString(&quot;MMM&quot;)+&quot;\&quot;+in_TransactionItem.Split(&quot;\&quot;c).Last()+&quot;\DewaTemplateStatus.xlsx&quot;]" />
+                        <ui:WriteCell Cell="[&quot;X&quot;+counterRowIndex.ToString]" DisplayName="Update Dewa invoice processing status in Excel" sap:VirtualizedContainerService.HintSize="416,270" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="Sheet1" Text="[If(is_FileProcessed,&quot;Success&quot;,&quot;Retry&quot;)]" WorkbookPath="[in_Config(&quot;DewaInvoiceDownloadPath&quot;).ToString+Date.Now.ToString(&quot;yyyy&quot;)+&quot;\&quot;+Date.Now.ToString(&quot;MMM&quot;)+&quot;\&quot;+in_TransactionItem.Split(&quot;\&quot;c).Last()+&quot;\DewaTemplateStatus.xlsx&quot;]" />
                       </Sequence>
                     </If.Else>
                   </If>
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="502,25" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="486,90" sap2010:WorkflowViewState.IdRef="Sequence_6">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </Sequence>
@@ -286,7 +283,7 @@
         </ActivityAction>
       </ui:ForEachFileX.Body>
     </ui:ForEachFileX>
-    <Assign DisplayName="Assign-Counter Reset" sap:VirtualizedContainerService.HintSize="540,166" sap2010:WorkflowViewState.IdRef="Assign_3">
+    <Assign DisplayName="Assign-Counter Reset" sap:VirtualizedContainerService.HintSize="524,166" sap2010:WorkflowViewState.IdRef="Assign_3">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Int32">[counterRowIndex]</OutArgument>
       </Assign.To>
