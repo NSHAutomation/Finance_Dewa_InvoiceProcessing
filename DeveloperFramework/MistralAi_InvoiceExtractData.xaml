@@ -135,7 +135,7 @@
       <AssemblyReference>System.Linq.Async</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="MistralAi_InvoiceExtractData" sap:VirtualizedContainerService.HintSize="1366,2340" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="MistralAi_InvoiceExtractData" sap:VirtualizedContainerService.HintSize="1442,2397" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="base64" />
       <Variable x:TypeArguments="x:String" Name="requestBody" />
@@ -146,15 +146,15 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Sequence-Extract Dewa Invoice" sap:VirtualizedContainerService.HintSize="650,2317" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="Sequence-Extract Dewa Invoice" sap:VirtualizedContainerService.HintSize="650,2374" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <TryCatch DisplayName="Try Catch-Extract Dewa Invoice" sap:VirtualizedContainerService.HintSize="616,2234" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch DisplayName="Try Catch-Extract Dewa Invoice" sap:VirtualizedContainerService.HintSize="616,2291" sap2010:WorkflowViewState.IdRef="TryCatch_1">
         <TryCatch.Try>
-          <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="486,1401" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="486,1458" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -168,12 +168,20 @@
                 <InArgument x:TypeArguments="x:String">[Convert.ToBase64String(System.IO.File.ReadAllBytes(in_CurrentFile))]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Assign-Generate Payload For Http Request" sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="Assign_3">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[requestBody]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String" xml:space="preserve">[New JObject(
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="452,57" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored activities" sap:VirtualizedContainerService.HintSize="650,226" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign DisplayName="Assign-Generate Payload For Http Request" sap:VirtualizedContainerService.HintSize="616,166" sap2010:WorkflowViewState.IdRef="Assign_3">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[requestBody]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String" xml:space="preserve">[New JObject(
     New JProperty("model", "mistral-ocr-latest"),
     New JProperty("document", New JObject(
         New JProperty("type", "document_url"),
@@ -280,6 +288,139 @@
     )),
     New JProperty("document_annotation_prompt",
       "This is a DEWA (Dubai Electricity &amp; Water Authority) 'Green Bill' Tax Invoice, usually 2 pages To 4 Pages. All requested fields are on page 1. Extract only the fields defined in the schema, exactly as printed on the document. Do not guess, calculate, add up or infer any value. Header fields: Invoice, Issue Date, Month and Period are in the header block beside the Green Bill logo. Account Number is the large number under the 'Account Number' label. Beneficiary Name is the bold uppercase company name under the Business Partner number. Premise Number is in the address block. Due before is at the top right under 'Bill Summary'. Bill Summary fields: Electricity and Water are under the 'Dubai Electricity &amp; Water Authority' box. OOther Services of the invoice, printed after the label 'Other Services Totla:' in the header block beside the 'Green Bill - Tax Invoice' logo on page 1 labelled as 'Other Services '. Return exactly as printed in format with decimal, If not exist return 0.0 only, else if exist extract as same with decimal value. Housing, Sewerage and Irrigation are under the 'Dubai Municipality' box. Then extract Additional charges, Current month total, Previous bill balance, Adjustments, Payments received, Total Due (incl. VAT) and Current Month VAT. Amount rules: return amounts as plain numbers with a dot as decimal separator, without the Dirham symbol (D), currency text or thousands separators (e.g. 7,320.65 becomes 7320.65). A printed 0.00 must be returned as 0.00, not null. Date rules: keep dates exactly as printed in DD/MM/YYYY. Use null only if a label is genuinely not present on the document (for example an Irrigation line that is not printed). Ignore advertisements, banners, QR codes and footer text. Return only valid JSON that matches the schema.")
+).ToString(Newtonsoft.Json.Formatting.None)]</InArgument>
+                    </Assign.Value>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Assign>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <Assign DisplayName="Assign-Generate Payload For Http Request" sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="Assign_4">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[requestBody]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String" xml:space="preserve">[New JObject(
+    New JProperty("model", "mistral-ocr-latest"),
+    New JProperty("document", New JObject(
+        New JProperty("type", "document_url"),
+        New JProperty("document_url", "data:application/pdf;base64," &amp; base64.Trim)
+    )),
+    New JProperty("include_image_base64", False),
+    New JProperty("document_annotation_format", New JObject(
+        New JProperty("type", "json_schema"),
+        New JProperty("json_schema", New JObject(
+            New JProperty("name", "Dewa_Invoice_Extraction"),
+            New JProperty("strict", True),
+            New JProperty("schema", New JObject(
+                New JProperty("type", "object"),
+                New JProperty("additionalProperties", False),
+                New JProperty("required", New JArray("issueDate", "month", "period", "invoiceNumber", "accountNumber", "beneficiaryName", "premiseNumber", "dueDate", "additionalCharges", "currentMonthTotal", "previousBillBalance", "adjustments", "paymentRecived", "totalDueInVAT", "currentMonthWithVAT", "electricity", "water", "otherServices", "housing", "sewerage", "irrigation")),
+                New JProperty("properties", New JObject(
+                    New JProperty("issueDate", New JObject(
+                        New JProperty("type", New JArray("string", "null")),
+                        New JProperty("description", "Issue date of the invoice, printed after the label 'Issue Date:' in the header block beside the 'Green Bill - Tax Invoice' logo on page 1. Return exactly as printed in DD/MM/YYYY format.")
+                    )),
+                    New JProperty("month", New JObject(
+                        New JProperty("type", New JArray("string", "null")),
+                        New JProperty("description", "Billing month, printed after the label 'Month:' in the header block on page 1. Return exactly as printed, e.g. 'September 2026'.")
+                    )),
+                    New JProperty("period", New JObject(
+                        New JProperty("type", New JArray("string", "null")),
+                        New JProperty("description", "Billing period, printed after the label 'Period:' in the header block on page 1. Return the full range exactly as printed, e.g. '19/08/2026 to 18/09/2026'.")
+                    )),
+                    New JProperty("invoiceNumber", New JObject(
+                        New JProperty("type", New JArray("string", "null")),
+                        New JProperty("description", "Invoice number. The 10-digit number printed after the label 'Invoice:' in the header block on page 1 (example format: 10008365883). Do not confuse it with the Account Number, Business Partner number or DEWA VAT No.")
+                    )),
+                    New JProperty("accountNumber", New JObject(
+                        New JProperty("type", New JArray("string", "null")),
+                        New JProperty("description", "DEWA account number. The large 10-digit number printed directly below the label 'Account Number' on the left side of page 1 (above 'Account Type'). Do not return the Business Partner number or Premise Number.")
+                    )),
+                    New JProperty("beneficiaryName", New JObject(
+                        New JProperty("type", New JArray("string", "null")),
+                        New JProperty("description", "Name of the customer/company the invoice is issued to. It is the large bold UPPERCASE name printed directly below the Business Partner number and above the address lines on page 1. Return only that name line, not the address.")
+                    )),
+                    New JProperty("premiseNumber", New JObject(
+                        New JProperty("type", New JArray("string", "null")),
+                        New JProperty("description", "Premise number, printed after the label 'Premise Number:' in the customer address block on page 1.")
+                    )),
+                    New JProperty("dueDate", New JObject(
+                        New JProperty("type", New JArray("string", "null")),
+                        New JProperty("description", "Payment due date, printed after the label 'Due before' directly under the 'Bill Summary' heading at the top right of page 1. Return in DD/MM/YYYY format.")
+                    )),
+                    New JProperty("additionalCharges", New JObject(
+                        New JProperty("type", New JArray("string", "null")),
+                        New JProperty("description", "Amount printed after the label 'Additional charges:' below the Dubai Municipality box on page 1. Amount as printed with all decimals; if 'CR' or 'DR' is printed after the amount, append it after a single space (e.g. '120.50 CR'); otherwise return the amount only.")
+                    )),
+                    New JProperty("currentMonthTotal", New JObject(
+                        New JProperty("type", New JArray("string", "null")),
+                        New JProperty("description", "Amount printed after the label 'Current month total:' on page 1. Amount as printed with all decimals; if 'CR' or 'DR' is printed after the amount, append it after a single space (e.g. '7320.65 DR'); otherwise return the amount only.")
+                    )),
+                    New JProperty("previousBillBalance", New JObject(
+                        New JProperty("type", New JArray("string", "null")),
+                        New JProperty("description", "Amount printed after the label 'Previous bill balance:' on page 1. Amount as printed with all decimals; if 'CR' or 'DR' is printed after the amount, append it after a single space (e.g. '3500.00 CR'); otherwise return the amount only.")
+                    )),
+                    New JProperty("adjustments", New JObject(
+                        New JProperty("type", New JArray("string", "null")),
+                        New JProperty("description", "Amount printed after the label 'Adjustments:' on page 1. Amount as printed with all decimals; if 'CR' or 'DR' is printed after the amount, append it after a single space (e.g. '15.00 DR'); otherwise return the amount only.")
+                    )),
+                    New JProperty("paymentRecived", New JObject(
+                        New JProperty("type", New JArray("string", "null")),
+                        New JProperty("description", "Amount printed against the label 'Payments received' on page 1 (the row above 'Upto: &lt;date&gt;'). Amount as printed with all decimals; if 'CR' or 'DR' is printed after the amount, append it after a single space (e.g. '5000.00 CR'); otherwise return the amount only. Do not return the 'Upto' date.")
+                    )),
+                    New JProperty("totalDueInVAT", New JObject(
+                        New JProperty("type", New JArray("string", "null")),
+                        New JProperty("description", "Amount printed against the label 'Total Due (incl. VAT)' at the bottom of the Bill Summary on page 1. Amount as printed with all decimals; if 'CR' or 'DR' is printed after the amount, append it after a single space (e.g. '7320.65 CR'); otherwise return the amount only.")
+                    )),
+                    New JProperty("currentMonthWithVAT", New JObject(
+                        New JProperty("type", New JArray("string", "null")),
+                        New JProperty("description", "VAT amount printed after the label 'Current Month VAT:' below 'Total Due (incl. VAT)' on page 1. Amount as printed with all decimals; if 'CR' or 'DR' is printed after the amount, append it after a single space; otherwise return the amount only.")
+                    )),
+                    New JProperty("electricity", New JObject(
+                        New JProperty("type", New JArray("string", "null")),
+                        New JProperty("description", "Amount shown against the line 'Electricity' inside the 'Dubai Electricity &amp; Water Authority' box of the Bill Summary on page 1. Amount as printed with all decimals; if 'CR' or 'DR' is printed after the amount, append it after a single space; otherwise return the amount only.")
+                    )),
+                    New JProperty("water", New JObject(
+                        New JProperty("type", New JArray("string", "null")),
+                        New JProperty("description", "Amount shown against the line 'Water' inside the 'Dubai Electricity &amp; Water Authority' box of the Bill Summary on page 1 (not the box 'Total' and not the page 2 sub total). Amount as printed with all decimals; if 'CR' or 'DR' is printed after the amount, append it after a single space; otherwise return the amount only.")
+                    )),
+                    New JProperty("otherServices", New JObject(
+                        New JProperty("type", New JArray("string", "null")),
+                        New JProperty("description", "Amount printed against the label 'Other Services' on page 1. Amount as printed with all decimals; if 'CR' or 'DR' is printed after the amount, append it after a single space; otherwise return the amount only. If the line is not present, return 0.00.")
+                    )),
+                    New JProperty("housing", New JObject(
+                        New JProperty("type", New JArray("string", "null")),
+                        New JProperty("description", "Amount shown against the line 'Housing' inside the 'Dubai Municipality' box of the Bill Summary on page 1. Amount as printed with all decimals; if 'CR' or 'DR' is printed after the amount, append it after a single space; otherwise return the amount only.")
+                    )),
+                    New JProperty("sewerage", New JObject(
+                        New JProperty("type", New JArray("string", "null")),
+                        New JProperty("description", "Amount shown against the line 'Sewerage' inside the 'Dubai Municipality' box of the Bill Summary on page 1. Amount as printed with all decimals; if 'CR' or 'DR' is printed after the amount, append it after a single space; otherwise return the amount only.")
+                    )),
+                    New JProperty("irrigation", New JObject(
+                        New JProperty("type", New JArray("string", "null")),
+                        New JProperty("description", "Amount shown against a line labelled 'Irrigation' in the Bill Summary on page 1, if such a line exists. Amount as printed with all decimals; if 'CR' or 'DR' is printed after the amount, append it after a single space; otherwise return the amount only. If the line is not printed on the bill, return null.")
+                    ))
+                ))
+            ))
+        ))
+    )),
+    New JProperty("document_annotation_prompt",
+      "This is a DEWA (Dubai Electricity &amp; Water Authority) 'Green Bill' Tax Invoice, usually 2 to 4 pages. All requested fields are on page 1. Extract only the fields defined in the schema, exactly as printed on the document. Do not guess, calculate, add up or infer any value. Header fields: Invoice, Issue Date, Month and Period are in the header block beside the Green Bill logo. Account Number is the large number under the 'Account Number' label. Beneficiary Name is the bold uppercase company name under the Business Partner number. Premise Number is in the address block. Due before is at the top right under 'Bill Summary'. Bill Summary fields: Electricity and Water are under the 'Dubai Electricity &amp; Water Authority' box. Other Services is the amount against the label 'Other Services'; if it is not present return 0.00. Housing, Sewerage and Irrigation are under the 'Dubai Municipality' box. Then extract Additional charges, Current month total, Previous bill balance, Adjustments, Payments received, Total Due (incl. VAT) and Current Month VAT. " &amp;
+      "AMOUNT RULES (very important): every amount is returned as a STRING exactly as printed. Remove only the Dirham symbol (D), currency text and thousands separators (e.g. 7,320.65 becomes 7320.65). Keep ALL decimal digits and trailing zeros: 1100.00 stays '1100.00' (not '1100'), 1165.50 stays '1165.50' (not '1165.5'). Never round, truncate or convert to a number. A printed 0.00 must be returned as '0.00', not null. " &amp;
+      "CR/DR RULE (very important): some amounts have the letters CR or DR printed right after them (for example '7,320.65 CR' or '250.00 DR'). When CR or DR is printed after an amount, return the amount followed by one space and the suffix in uppercase, e.g. '7320.65 CR' or '250.00 DR'. When no CR or DR is printed after the amount, return only the amount with no suffix. Never invent, guess or move a CR/DR suffix from another line. " &amp;
+      "Date rules: keep dates exactly as printed in DD/MM/YYYY. Use null only if a label is genuinely not present on the document (for example an Irrigation line that is not printed). Ignore advertisements, banners, QR codes and footer text. Return only valid JSON that matches the schema.")
 ).ToString(Newtonsoft.Json.Formatting.None)]</InArgument>
               </Assign.Value>
               <sap:WorkflowViewStateService.ViewState>
